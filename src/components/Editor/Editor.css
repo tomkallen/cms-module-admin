@@ -1,0 +1,11 @@
+.Editor h1 {
+  margin: 1rem auto;
+  color: #888;
+  font-size: 3rem;
+  text-align: center;
+}
+
+.Editor {
+  display: inline-block;
+  flex: 1 1 auto;
+}
