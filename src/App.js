@@ -15,7 +15,8 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Summary} />
           <Route exact path="/manager" component={PageManager} />
-          <Route exact path="/editor" component={Editor} />
+          <Route path="/editor" component={Editor} />
+
         </Switch>
       </div>
     );

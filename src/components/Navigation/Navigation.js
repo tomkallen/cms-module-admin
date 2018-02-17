@@ -12,7 +12,7 @@ class Navigation extends Component {
   render() {
     return (
       <div>
-          <Navbar fixed expand="sm">
+          <Navbar expand="sm">
             <NavbarBrand href="/">awesome cms</NavbarBrand>
             <Nav className="ml-auto" navbar>
               <NavItem>
