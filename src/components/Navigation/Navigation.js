@@ -9,19 +9,14 @@ class Navigation extends Component {
       isOpen: false,
     };
   }
-  toggle = () => {
-    this.setState({
-      isOpen: !this.state.isOpen,
-    });
-  };
   render() {
     return (
       <div>
           <Navbar fixed expand="sm">
-            <NavbarBrand href="/">CMS</NavbarBrand>
+            <NavbarBrand href="/">awesome cms</NavbarBrand>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/editor/">page manager</NavLink>
+                <NavLink href="/manager/">page manager</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="/">summary</NavLink>

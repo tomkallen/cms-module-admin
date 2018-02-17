@@ -2,9 +2,10 @@ import React, {Component} from 'react';
 import './App.css';
 import './css/lux.css';
 import Summary from './components/Summary/Summary';
-import Editor from './components/Editor/Editor';
+import PageManager from './components/PageManager/PageManager';
 import {Switch, Route} from 'react-router-dom';
 import Navigation from './components/Navigation/Navigation';
+import Editor from "./components/Editor/Editor";
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
         <Navigation />
         <Switch>
           <Route exact path="/" component={Summary} />
+          <Route exact path="/manager" component={PageManager} />
           <Route exact path="/editor" component={Editor} />
         </Switch>
       </div>
