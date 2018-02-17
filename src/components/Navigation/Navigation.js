@@ -1,53 +1,33 @@
 import React, {Component} from 'react';
-import {
-  Grid,
-  Row,
-  Navbar,
-  Nav,
-  NavItem,
-  NavDropdown,
-  MenuItem,
-  Button,
-  ButtonToolbar,
-} from 'react-bootstrap';
+import {Navbar, NavbarBrand, Nav, NavItem, NavLink} from 'reactstrap';
 
 class Navigation extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isOpen: false,
+    };
+  }
+  toggle = () => {
+    this.setState({
+      isOpen: !this.state.isOpen,
+    });
+  };
   render() {
     return (
       <div>
-        <Row>
-          <Navbar bsStyle="inverse">
-            <Navbar.Header>
-              <Navbar.Brand>
-                <a href="/">CMS</a>
-              </Navbar.Brand>
-              <Navbar.Toggle />
-            </Navbar.Header>
-            <Navbar.Collapse>
-              <Navbar.Text>
-                Signed in as: <Navbar.Link href="#">Mark Otto</Navbar.Link>
-              </Navbar.Text>
-              <Navbar.Text pullRight>Have a great day!</Navbar.Text>
-            </Navbar.Collapse>
+          <Navbar fixed expand="sm">
+            <NavbarBrand href="/">CMS</NavbarBrand>
+            <Nav className="ml-auto" navbar>
+              <NavItem>
+                <NavLink href="/editor/">page manager</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/">summary</NavLink>
+              </NavItem>
+            </Nav>
           </Navbar>
-        </Row>
-        <Row>
-          <ButtonToolbar>
-            <Button>Default</Button>
-
-            <Button bsStyle="primary">Primary</Button>
-
-            <Button bsStyle="success">Success</Button>
-
-            <Button bsStyle="info">Info</Button>
-
-            <Button bsStyle="warning">Warning</Button>
-
-            <Button bsStyle="danger">Danger</Button>
-
-            <Button bsStyle="link">Link</Button>
-          </ButtonToolbar>
-        </Row>
       </div>
     );
   }
