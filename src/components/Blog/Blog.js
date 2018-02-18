@@ -2,16 +2,16 @@ import React, {Component} from 'react';
 import {Button, Col, Container, Form, FormGroup, Input, Label, Row} from 'reactstrap';
 import {Link} from 'react-router-dom';
 import Controls from "../Controls/Controls";
-import EditorModal from "../EditorModal/EditorModal"
+import WrapperModal from "../Modals/ModalWrapper";
 
 class Blog extends Component {
   constructor(props) {
     super(props);
-    this.state = {modal: false, type: ""}
+    this.state = {modalState: false, type: ""}
   }
 
   handleModal = (type) => {
-    this.setState(state => ({modal: !state.modal, type}))
+    this.setState({modalState: type})
   };
 
   render() {
@@ -73,7 +73,7 @@ class Blog extends Component {
           </Col>
         </Row>
         <Controls handleModal={this.handleModal}/>
-        <EditorModal handleModal={this.handleModal} isOpen={this.state.modal} type={"Paragraph"}/>
+        <WrapperModal handleModal={this.handleModal} isOpen={this.state.modalState}/>
       </Container>
     );
   }

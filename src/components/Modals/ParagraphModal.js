@@ -2,15 +2,15 @@ import React, {Component} from 'react';
 import {Button, FormGroup, Input, Label, Modal, ModalBody, ModalFooter, ModalHeader} from 'reactstrap';
 import PropTypes from "prop-types";
 
-class EditorModal extends Component {
+class ParagraphModal extends Component {
   constructor(props) {
     super(props);
   }
 
   render() {
     return (
-      <Modal isOpen={this.props.isOpen}>
-        <ModalHeader>{this.props.type}</ModalHeader>
+      <Modal isOpen={this.props.isOpen === "paragraph"}>
+        <ModalHeader>Paragraph</ModalHeader>
         <ModalBody>
           <h6>Feel free to use markdown here </h6>
           <FormGroup>
@@ -27,8 +27,8 @@ class EditorModal extends Component {
   }
 }
 
-EditorModal.propTypes = {
+ParagraphModal.propTypes = {
   type: PropTypes.string.isRequired
 };
 
-export default EditorModal;
+export default ParagraphModal;
