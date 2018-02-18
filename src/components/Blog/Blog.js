@@ -3,18 +3,36 @@ import {Button, Col, Container, Form, FormGroup, Input, Label, Row} from 'reacts
 import {Link} from 'react-router-dom';
 import Controls from "../Controls/Controls";
 import WrapperModal from "../Modals/ModalWrapper";
+import Element from "../Element/Element";
 
 class Blog extends Component {
   constructor(props) {
     super(props);
-    this.state = {modalState: false, type: ""}
+    this.state = {modalState: false, type: "", body: {}, currentId: null}
   }
 
-  handleModal = (type) => {
+  handleModal = (type, id) => {
+    if (!id) {
+      id = String(Math.random()).slice(2) + "-" + String(Math.random()).slice(2);
+      this.setState({modalState: type, currentId: id});
+    }
     this.setState({modalState: type})
   };
 
+  saveElement = (data) => {
+    const body = {...this.state.body, ...data};
+    this.setState({body, modalState: null, currentId: null});
+  };
+
+  renderStructure = () => {
+    const b = this.state.body;
+    const els = Object.keys(this.state.body);
+    return els.map(e => <Element key={"key-" + b[e].identifier} type={b[e].type} value={b[e].value}/>);
+  };
+
+
   render() {
+    console.log(this.state.body)
     return (
       <Container>
         <Row>
@@ -72,8 +90,10 @@ class Blog extends Component {
             <h3 align="center"> Post structure </h3>
           </Col>
         </Row>
+        {this.renderStructure()}
         <Controls handleModal={this.handleModal}/>
-        <WrapperModal handleModal={this.handleModal} isOpen={this.state.modalState}/>
+        <WrapperModal saveElement={this.saveElement} handleModal={this.handleModal} isOpen={this.state.modalState}
+                      id={this.state.currentId}/>
       </Container>
     );
   }

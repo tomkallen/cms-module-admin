@@ -3,7 +3,7 @@ import ParagraphModal from "./ParagraphModal";
 
 const WrapperModal = props => (
   <div>
-    <ParagraphModal handleModal={props.handleModal} isOpen={props.isOpen}/>
+    <ParagraphModal saveElement={props.saveElement} id={props.id} handleModal={props.handleModal} isOpen={props.isOpen}/>
   </div>
 );
 
