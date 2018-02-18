@@ -9,19 +9,21 @@ import {Button, ButtonGroup, Col, Container, Row} from 'reactstrap';
 class PageManager extends Component {
   render() {
     return (
-      <Container fluid>
+      <Container>
         <Row>
-          <Col lg={{offset: 1}}><h1>page manager</h1></Col>
+          <Col>
+            <h1>page manager</h1>
+          </Col>
         </Row>
         <Row>
-          <Col lg={{offset: 1}}>
+          <Col>
             <ButtonGroup>
               <Button color={"primary"}>Blog Posts</Button>
               <Button color={"primary"}>Articles</Button>
             </ButtonGroup>
           </Col>
-          <Col lg={{offset: 8}}>
-            <Link to="/editor"><Button color={"primary"}>
+          <Col className={"text-right"}>
+            <Link to="/editor"><Button color={"info"}>
               add page
             </Button></Link>
           </Col>
